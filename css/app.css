@@ -685,6 +685,7 @@ main {
     border-radius: 28px;
     background: rgba(255, 255, 255, 0.62);
     border: 1px solid rgba(255, 255, 255, 0.7);
+    overflow: hidden;
 }
 
 .partners-strip p {
@@ -696,16 +697,65 @@ main {
     font-weight: 800;
 }
 
-.logo-grid {
-    align-items: center;
+.partners-marquee {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    animation: partners-scroll 28s linear infinite;
+    will-change: transform;
 }
 
-.logo-grid img {
-    height: 38px;
+.partners-strip:hover .partners-marquee {
+    animation-play-state: paused;
+}
+
+.partners-track {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.partner-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 156px;
+    height: 72px;
+    padding: 0 20px;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(24, 36, 47, 0.08);
+    box-shadow: 0 14px 30px rgba(24, 36, 47, 0.08);
+}
+
+.partner-chip img {
+    max-width: 120px;
+    max-height: 34px;
     object-fit: contain;
-    margin: 0 auto;
     filter: grayscale(1);
-    opacity: 0.75;
+    opacity: 0.82;
+}
+
+.partner-chip-text {
+    min-width: 190px;
+    background: linear-gradient(135deg, rgba(19, 34, 45, 0.96), rgba(41, 65, 79, 0.92));
+    color: #fff;
+}
+
+.partner-chip-text span {
+    font-size: 0.94rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+@keyframes partners-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-50% - 8px));
+    }
 }
 
 .showcase-band {
@@ -1141,5 +1191,19 @@ main {
     .pwa-install {
         flex-direction: column;
         align-items: stretch;
+    }
+
+    .partners-marquee {
+        animation-duration: 20s;
+    }
+
+    .partner-chip {
+        min-width: 138px;
+        height: 64px;
+        padding: 0 16px;
+    }
+
+    .partner-chip-text {
+        min-width: 164px;
     }
 }
