@@ -683,8 +683,14 @@ main {
 .partners-strip {
     padding: 24px;
     border-radius: 28px;
-    background: rgba(255, 255, 255, 0.62);
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    background:
+        radial-gradient(circle at top left, rgba(197, 59, 44, 0.12), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(15, 118, 110, 0.14), transparent 28%),
+        rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.82);
+    box-shadow:
+        0 24px 60px rgba(24, 36, 47, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
     overflow: hidden;
 }
 
@@ -697,11 +703,21 @@ main {
     font-weight: 800;
 }
 
+.partners-strip::before {
+    content: "";
+    display: block;
+    width: 84px;
+    height: 3px;
+    margin-bottom: 18px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--brand), rgba(15, 118, 110, 0.9));
+}
+
 .partners-marquee {
     display: flex;
     gap: 16px;
     width: max-content;
-    animation: partners-scroll 28s linear infinite;
+    animation: partners-scroll 34s linear infinite;
     will-change: transform;
 }
 
@@ -723,9 +739,11 @@ main {
     height: 72px;
     padding: 0 20px;
     border-radius: 22px;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(24, 36, 47, 0.08);
-    box-shadow: 0 14px 30px rgba(24, 36, 47, 0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(245, 239, 231, 0.92));
+    border: 1px solid rgba(24, 36, 47, 0.06);
+    box-shadow:
+        0 16px 30px rgba(24, 36, 47, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .partner-chip img {
@@ -734,11 +752,12 @@ main {
     object-fit: contain;
     filter: grayscale(1);
     opacity: 0.82;
+    transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
 }
 
 .partner-chip-text {
     min-width: 190px;
-    background: linear-gradient(135deg, rgba(19, 34, 45, 0.96), rgba(41, 65, 79, 0.92));
+    background: linear-gradient(135deg, rgba(19, 34, 45, 0.98), rgba(41, 65, 79, 0.94));
     color: #fff;
 }
 
@@ -747,6 +766,24 @@ main {
     font-weight: 800;
     letter-spacing: 0.02em;
     white-space: nowrap;
+}
+
+.partner-chip-local {
+    background: linear-gradient(135deg, rgba(197, 59, 44, 0.96), rgba(143, 34, 25, 0.96));
+    color: #fff;
+}
+
+.partner-chip:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 22px 36px rgba(24, 36, 47, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.94);
+}
+
+.partner-chip:hover img {
+    filter: grayscale(0);
+    opacity: 1;
+    transform: scale(1.03);
 }
 
 @keyframes partners-scroll {
