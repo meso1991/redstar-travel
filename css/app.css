@@ -755,22 +755,24 @@ main {
     transition: transform 0.25s ease, opacity 0.25s ease, filter 0.25s ease;
 }
 
-.partner-chip-text {
-    min-width: 190px;
+.partner-chip-dark {
     background: linear-gradient(135deg, rgba(19, 34, 45, 0.98), rgba(41, 65, 79, 0.94));
-    color: #fff;
 }
 
-.partner-chip-text span {
-    font-size: 0.94rem;
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
+.partner-logo-light {
+    mix-blend-mode: multiply;
+    filter: none;
+    opacity: 1;
+    max-width: 138px;
+    max-height: 42px;
 }
 
-.partner-chip-local {
-    background: linear-gradient(135deg, rgba(197, 59, 44, 0.96), rgba(143, 34, 25, 0.96));
-    color: #fff;
+.partner-logo-dark {
+    mix-blend-mode: screen;
+    filter: none;
+    opacity: 1;
+    max-width: 138px;
+    max-height: 42px;
 }
 
 .partner-chip:hover {
