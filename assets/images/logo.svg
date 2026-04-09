@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">RedStar Travel</title>
+  <desc id="logoDesc">RedStar wordmark with a red star replacing the letter A.</desc>
+  <defs>
+    <style>
+      .word {
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic;
+        font-weight: 800;
+        letter-spacing: 1px;
+      }
+      .red { fill: #d61f26; }
+      .dark { fill: #2f2f31; }
+    </style>
+  </defs>
+
+  <text class="word red" x="8" y="78" font-size="68">RED</text>
+  <text class="word dark" x="175" y="78" font-size="68">ST</text>
+  <path class="red" d="M 336 10 L 351.28 43.33 L 387.64 47.56 L 360.72 72.67 L 367.8 108 L 336 90.11 L 304.2 108 L 311.28 72.67 L 284.36 47.56 L 320.72 43.33 Z"/>
+  <text class="word dark" x="381" y="78" font-size="68">R</text>
+  <rect x="8" y="90" width="440" height="4" rx="2" fill="#d61f26" opacity="0.12"/>
+</svg>

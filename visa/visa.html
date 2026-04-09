@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa Services | RedStar Travel</title>
+    <link rel="icon" href="../assets/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body data-page="visa">
+    <header class="site-header">
+        <div class="header-container">
+            <a class="logo" href="../index.html" aria-label="RedStar Travel home"><img src="../assets/images/logo.svg" alt="RedStar Travel"></a>
+            <nav class="nav-links">
+                <a href="../index.html" data-i18n="nav_home">Home</a>
+                <a href="../about.html" data-i18n="nav_about">About</a>
+                <a href="../services.html" class="active" data-i18n="nav_services">Services</a>
+                <a href="../contact.html" class="nav-cta" data-i18n="nav_contact">Contact</a>
+                <div class="lang-switcher"><button class="lang-btn" type="button" data-lang="en">EN</button><button class="lang-btn" type="button" data-lang="ar">AR</button></div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero" style="--page-hero-image: url('../assets/images/dest-saudi.webp');">
+            <div class="page-hero-content">
+                <span class="eyebrow" data-i18n="hero_eyebrow">Visa Directory</span>
+                <h1 data-i18n="hero_title">Choose a visa destination and move straight to the right details.</h1>
+                <p data-i18n="hero_text">Browse country pages for requirements, service notes, and direct inquiry actions through RedStar.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container visa-overview-grid">
+                <article class="visa-card">
+                    <img src="../assets/images/dest-saudi.webp" alt="Saudi visa service">
+                    <div class="visa-card-body">
+                        <h3 data-i18n="saudi_country">Saudi Arabia</h3>
+                        <p data-i18n="visa_dir_saudi_text">Visit, family, Umrah, and travel guidance.</p>
+                        <div class="hero-actions"><a class="button button-primary" href="saudi.html" data-i18n="open_page">Open Page</a></div>
+                    </div>
+                </article>
+                <article class="visa-card">
+                    <img src="../assets/images/dest-dubai.webp" alt="UAE visa service">
+                    <div class="visa-card-body">
+                        <h3 data-i18n="uae_country">UAE</h3>
+                        <p data-i18n="visa_dir_uae_text">Tourist visa pathways and traveler profile options.</p>
+                        <div class="hero-actions"><a class="button button-primary" href="uae.html" data-i18n="open_page">Open Page</a></div>
+                    </div>
+                </article>
+                <article class="visa-card">
+                    <img src="../assets/images/dest-egypt.webp" alt="Egypt service">
+                    <div class="visa-card-body">
+                        <h3 data-i18n="egypt_country">Egypt</h3>
+                        <p data-i18n="visa_dir_egypt_text">Fast security approval support and quick document review.</p>
+                        <div class="hero-actions"><a class="button button-primary" href="egypt.html" data-i18n="open_page">Open Page</a></div>
+                    </div>
+                </article>
+                <article class="visa-card">
+                    <img src="../assets/images/dest-saudi.webp" alt="Africa visa service">
+                    <div class="visa-card-body">
+                        <h3 data-i18n="africa_card_title">Africa Visas</h3>
+                        <p data-i18n="africa_card_text">Visa options for selected African destinations with clear requirements and pricing snapshots.</p>
+                        <div class="hero-actions"><a class="button button-primary" href="africa.html" data-i18n="open_page">Open Page</a></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <p>© <span data-current-year></span> <span data-i18n="footer_copy">RedStar Travel. Crafted for confident journeys.</span></p>
+            <div class="footer-links">
+                <a href="../services.html" data-i18n="nav_services">Services</a>
+                <a href="africa.html" data-i18n="africa_visas">Africa Visas</a>
+                <a href="../contact.html" data-i18n="nav_contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

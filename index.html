@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedStar Travel | Premium Agency</title>
+    <link rel="icon" href="assets/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body data-page="index">
+    <header class="site-header">
+        <div class="header-container">
+            <a class="logo" href="index.html" aria-label="RedStar Travel home">
+                <img src="assets/images/logo.svg" alt="RedStar Travel">
+            </a>
+            <nav class="nav-links">
+                <a href="index.html" class="active" data-i18n="nav_home">Home</a>
+                <a href="about.html" data-i18n="nav_about">About</a>
+                <a href="services.html" data-i18n="nav_services">Services</a>
+                <a href="contact.html" class="nav-cta" data-i18n="nav_contact">Contact</a>
+                <div class="lang-switcher">
+                    <button class="lang-btn" type="button" data-lang="en">EN</button>
+                    <button class="lang-btn" type="button" data-lang="ar">AR</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-shell">
+            <div class="hero-content hero-grid">
+                <div class="hero-copy">
+                    <span class="eyebrow" data-i18n="hero_eyebrow">RedStar Premium Travel Desk</span>
+                    <h1 data-i18n="hero_title">Explore farther with a sharper travel partner.</h1>
+                    <p data-i18n="hero_text">Flights, hotels, and visa support designed for travelers who want fast answers, elegant planning, and smooth next steps across the Middle East, Africa, and beyond.</p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="services.html" data-i18n="start_planning">Start Planning</a>
+                        <a class="button button-secondary" href="contact.html" data-i18n="speak_whatsapp">Speak On WhatsApp</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <strong data-i18n="stat_flights_title">Flights</strong>
+                            <span data-i18n="stat_flights_text">Direct links and flexible route planning.</span>
+                        </div>
+                        <div class="stat-card">
+                            <strong data-i18n="stat_hotels_title">Hotels</strong>
+                            <span data-i18n="stat_hotels_text">Curated stays for business and family travel.</span>
+                        </div>
+                        <div class="stat-card">
+                            <strong data-i18n="stat_visas_title">Visas</strong>
+                            <span data-i18n="stat_visas_text">Clear requirements with fast inquiry support.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="search-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2 data-i18n="quick_search_title">Quick Search</h2>
+                            <p data-i18n="quick_search_text">Compare your next move in a few seconds.</p>
+                        </div>
+                        <div class="search-tabs">
+                            <button class="tab-btn active" type="button" onclick="openTab(event, 'flights')" data-i18n="tab_flights">Flights</button>
+                            <button class="tab-btn" type="button" onclick="openTab(event, 'hotels')" data-i18n="tab_hotels">Hotels</button>
+                        </div>
+                    </div>
+
+                    <div id="flights" class="tab-content active">
+                        <div class="trip-options">
+                            <label><input type="radio" name="trip-type" checked onclick="toggleReturn(true)"> <span data-i18n="round_trip">Round Trip</span></label>
+                            <label><input type="radio" name="trip-type" onclick="toggleReturn(false)"> <span data-i18n="one_way">One Way</span></label>
+                        </div>
+                        <div class="search-grid">
+                            <div class="input-box">
+                                <label for="flight-origin" data-i18n="flight_origin_label">Origin</label>
+                                <input type="text" id="flight-origin" data-i18n-placeholder="flight_origin_label" placeholder="Cairo or CAI" required>
+                            </div>
+                            <div class="input-box">
+                                <label for="flight-dest" data-i18n="flight_dest_label">Destination</label>
+                                <input type="text" id="flight-dest" data-i18n-placeholder="flight_dest_label" placeholder="Dubai, Istanbul, Cairo" required>
+                            </div>
+                            <div class="input-box">
+                                <label for="flight-departure" data-i18n="flight_departure_label">Departure Date</label>
+                                <input type="date" id="flight-departure" required>
+                            </div>
+                            <div class="input-box" id="return-box">
+                                <label for="flight-return" data-i18n="flight_return_label">Return Date</label>
+                                <input type="date" id="flight-return">
+                            </div>
+                            <div class="input-box">
+                                <label data-i18n="travelers_label">Travelers</label>
+                                <div class="passenger-grid">
+                                    <div class="p-input"><small data-i18n="adults_label">Adults</small><input type="number" id="adults" value="1" min="1"></div>
+                                    <div class="p-input"><small data-i18n="children_label">Children</small><input type="number" id="kids" value="0" min="0"></div>
+                                    <div class="p-input"><small data-i18n="infants_label">Infants</small><input type="number" id="infants" value="0" min="0"></div>
+                                </div>
+                            </div>
+                            <button class="button button-primary search-submit" type="button" onclick="searchFlights()" data-i18n="search_flights_btn">Search Flights</button>
+                        </div>
+                    </div>
+
+                    <div id="hotels" class="tab-content">
+                        <div class="search-grid">
+                            <div class="input-box">
+                                <label for="hotel-dest" data-i18n="hotel_dest_label">Destination</label>
+                                <input type="text" id="hotel-dest" data-i18n-placeholder="hotel_dest_label" placeholder="City or hotel name" required>
+                            </div>
+                            <div class="input-box">
+                                <label for="hotel-checkin" data-i18n="hotel_checkin_label">Check-in</label>
+                                <input type="date" id="hotel-checkin" required>
+                            </div>
+                            <div class="input-box">
+                                <label for="hotel-checkout" data-i18n="hotel_checkout_label">Check-out</label>
+                                <input type="date" id="hotel-checkout" required>
+                            </div>
+                            <div class="input-box">
+                                <label data-i18n="rooms_guests_label">Rooms & Guests</label>
+                                <div class="passenger-grid">
+                                    <div class="p-input"><small data-i18n="rooms_label">Rooms</small><input type="number" id="rooms" value="1" min="1"></div>
+                                    <div class="p-input"><small data-i18n="guests_label">Guests</small><input type="number" id="guests" value="2" min="1"></div>
+                                    <div class="p-input"><small data-i18n="kids_small">Kids</small><input type="number" value="0" min="0" disabled></div>
+                                </div>
+                            </div>
+                            <button class="button button-primary search-submit" type="button" onclick="searchHotels()" data-i18n="find_hotels_btn">Find Hotels</button>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <span class="kicker" data-i18n="featured_kicker">Featured Destinations</span>
+                        <h2 data-i18n="featured_title">Popular routes our travelers keep returning to.</h2>
+                    </div>
+                    <p data-i18n="featured_text">Designed for travelers flying between business hubs, family destinations, and leisure cities with easy onward planning.</p>
+                </div>
+                <div class="dest-grid">
+                    <article class="dest-card">
+                        <img src="assets/images/dest-dubai.webp" alt="Dubai skyline">
+                        <div class="dest-info">
+                            <h3>Dubai</h3>
+                            <p data-i18n="dubai_desc">Luxury stays, shopping weekends, and flexible UAE connections.</p>
+                        </div>
+                    </article>
+                    <article class="dest-card">
+                        <img src="assets/images/dest-istanbul.webp" alt="Istanbul city view">
+                        <div class="dest-info">
+                            <h3>Istanbul</h3>
+                            <p data-i18n="istanbul_desc">A favorite for family trips, short breaks, and cultural stopovers.</p>
+                        </div>
+                    </article>
+                    <article class="dest-card">
+                        <img src="assets/images/dest-saudi.webp" alt="Saudi Arabia destination">
+                        <div class="dest-info">
+                            <h3>Saudi Arabia</h3>
+                            <p data-i18n="saudi_desc">Travel support for visits, Umrah planning, and regional business travel.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container section-stack">
+                <div class="section-head">
+                    <div>
+                        <span class="kicker" data-i18n="signature_kicker">Signature Services</span>
+                        <h2 data-i18n="signature_title">Built to move from inquiry to action quickly.</h2>
+                    </div>
+                    <p data-i18n="signature_text">Each service is designed to reduce back-and-forth and point travelers toward the next clear step.</p>
+                </div>
+                <div class="services-grid">
+                    <article class="service-panel">
+                        <img src="assets/images/service-flights.webp" alt="Flight booking service">
+                        <div class="service-copy">
+                            <span>Flight Booking</span>
+                            <h3 data-i18n="flight_booking_title">Airline options with direct booking pathways.</h3>
+                            <p data-i18n="flight_booking_text">We help compare routes, short stopovers, and quick-book channels so travelers can confirm plans with less friction.</p>
+                        </div>
+                    </article>
+                    <article class="service-panel">
+                        <img src="assets/images/service-hotels.webp" alt="Hotel reservation service">
+                        <div class="service-copy">
+                            <span>Hotel Reservations</span>
+                            <h3 data-i18n="hotel_booking_title">Comfortable stays matched to your route.</h3>
+                            <p data-i18n="hotel_booking_text">From overnight transit hotels to full holiday stays, RedStar helps you move from destination choice to ready-to-book accommodation.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container section-stack">
+                <div class="section-head">
+                    <div>
+                        <span class="kicker" data-i18n="sample_kicker">Sample Deals</span>
+                        <h2 data-i18n="sample_title">Browse a few example offers before you search.</h2>
+                    </div>
+                    <p data-i18n="sample_text">Use these as inspiration, then move into live airline or hotel search from the forms above.</p>
+                </div>
+                <div class="cards-grid">
+                    <article class="flight-result-card">
+                        <div class="card-image">
+                            <img src="assets/images/dest-dubai.webp" alt="Dubai deal">
+                            <span class="price-badge">$299</span>
+                        </div>
+                        <div class="card-details">
+                            <h3 data-i18n="cairo_dubai">Cairo to Dubai</h3>
+                            <div class="flight-info">
+                                <span><i class="fa-regular fa-clock"></i> 3h 45m</span>
+                                <span><i class="fa-solid fa-plane-departure"></i> Direct</span>
+                            </div>
+                            <p class="result-note" data-i18n="cairo_dubai_note">Includes baggage support and flexible cancellation on selected fares.</p>
+                            <a class="button button-primary" href="https://www.skyscanner.net" target="_blank" rel="noopener noreferrer" data-i18n="official_site">Open Official Site</a>
+                        </div>
+                    </article>
+                    <article class="flight-result-card">
+                        <div class="card-image">
+                            <img src="assets/images/dest-istanbul.webp" alt="Istanbul deal">
+                            <span class="price-badge">$180</span>
+                        </div>
+                        <div class="card-details">
+                            <h3 data-i18n="riyadh_istanbul">Riyadh to Istanbul</h3>
+                            <div class="flight-info">
+                                <span><i class="fa-regular fa-clock"></i> 4h 10m</span>
+                                <span><i class="fa-solid fa-plane"></i> Turkish Airlines</span>
+                            </div>
+                            <p class="result-note" data-i18n="riyadh_istanbul_note">Ideal for spring travel with strong value on short-haul regional bookings.</p>
+                            <a class="button button-primary" href="https://www.turkishairlines.com" target="_blank" rel="noopener noreferrer" data-i18n="view_airline">View Airline</a>
+                        </div>
+                    </article>
+                    <article class="flight-result-card">
+                        <div class="card-image">
+                            <img src="assets/images/dest-egypt.webp" alt="Egypt package">
+                            <span class="price-badge">$470</span>
+                        </div>
+                        <div class="card-details">
+                            <h3 data-i18n="egypt_security">Egypt Security Approval</h3>
+                            <div class="flight-info">
+                                <span><i class="fa-solid fa-shield"></i> Fast support</span>
+                                <span><i class="fa-solid fa-file-lines"></i> Visa service</span>
+                            </div>
+                            <p class="result-note" data-i18n="egypt_security_note">Quick inquiry option for Egypt travel support and related document guidance.</p>
+                            <a class="button button-primary" href="services.html" data-i18n="see_services">See Services</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="partners-strip">
+                    <p data-i18n="trusted_partners">Trusted partners and channels</p>
+                    <div class="logo-grid">
+                        <img src="assets/images/partner-airline-1.webp" alt="Partner airline 1">
+                        <img src="assets/images/partner-airline-2.webp" alt="Partner airline 2">
+                        <img src="assets/images/partner-airline-3.webp" alt="Partner airline 3">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <p>© <span data-current-year></span> <span data-i18n="footer_copy">RedStar Travel. Crafted for confident journeys.</span></p>
+            <div class="footer-links">
+                <a href="about.html" data-i18n="nav_about">About</a>
+                <a href="services.html" data-i18n="nav_services">Services</a>
+                <a href="contact.html" data-i18n="nav_contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

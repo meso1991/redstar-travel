@@ -1,0 +1,9 @@
+{
+  "name": "redstar-travel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RedStar Travel bilingual website with Wego-ready live flight search",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
