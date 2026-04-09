@@ -25,6 +25,10 @@ html {
     scroll-behavior: smooth;
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
 body {
     min-height: 100vh;
     font-family: "Manrope", sans-serif;
@@ -101,6 +105,19 @@ button {
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
+}
+
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(24, 36, 47, 0.08);
+    color: var(--ink);
+    box-shadow: 0 12px 24px rgba(24, 36, 47, 0.08);
 }
 
 .lang-switcher {
@@ -405,6 +422,7 @@ main {
     background: rgba(255, 255, 255, 0.96);
     padding: 14px 16px;
     color: var(--ink);
+    width: 100%;
 }
 
 .contact-form label {
@@ -907,6 +925,37 @@ main {
     box-shadow: var(--shadow);
 }
 
+.pwa-install {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 1200;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 24px;
+    background: rgba(19, 34, 45, 0.95);
+    color: #fff;
+    box-shadow: 0 24px 50px rgba(10, 17, 25, 0.25);
+}
+
+.pwa-install.show {
+    display: flex;
+}
+
+.pwa-install p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.84);
+    font-size: 0.95rem;
+}
+
+.pwa-install .button {
+    min-width: 148px;
+}
+
 @media (max-width: 1080px) {
     .hero-grid,
     .contact-layout,
@@ -935,15 +984,21 @@ main {
 }
 
 @media (max-width: 760px) {
+    .site-header {
+        position: sticky;
+    }
+
     .header-container {
         min-height: auto;
-        padding: 16px 0;
-        flex-direction: column;
+        padding: 14px 0;
+        align-items: center;
+        grid-template-columns: 1fr auto;
+        display: grid;
     }
 
     .hero-content,
     .page-hero-content {
-        padding: 48px 24px;
+        padding: 42px 22px;
     }
 
     .search-panel,
@@ -981,14 +1036,43 @@ main {
         flex-direction: column;
     }
 
-    .hero-actions,
-    .nav-links {
+    .hero-actions {
         width: 100%;
     }
 
     .nav-links a,
     .button {
         width: 100%;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        inset: 84px 16px auto 16px;
+        z-index: 1100;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 16px;
+        border-radius: 28px;
+        background: rgba(248, 242, 233, 0.98);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 30px 60px rgba(10, 17, 25, 0.18);
+        border: 1px solid rgba(24, 36, 47, 0.08);
+        max-height: calc(100vh - 120px);
+        overflow: auto;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        text-align: center;
     }
 
     .lang-switcher {
@@ -998,5 +1082,64 @@ main {
 
     .lang-btn {
         flex: 1;
+    }
+
+    .hero-copy h1,
+    .page-hero-content h1 {
+        font-size: clamp(2.6rem, 12vw, 4rem);
+        max-width: 100%;
+    }
+
+    .hero-copy p,
+    .page-hero-content p {
+        font-size: 1rem;
+    }
+
+    .passenger-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trip-options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .trip-options label {
+        justify-content: center;
+        min-height: 48px;
+        padding: 10px 12px;
+        border-radius: 14px;
+        background: rgba(24, 36, 47, 0.05);
+    }
+
+    .search-panel {
+        padding: 20px;
+    }
+
+    .panel-heading {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-tabs {
+        width: 100%;
+    }
+
+    .tab-btn {
+        min-height: 50px;
+    }
+
+    .contact-layout {
+        gap: 16px;
+    }
+
+    .footer {
+        padding-bottom: 110px;
+    }
+
+    .pwa-install {
+        flex-direction: column;
+        align-items: stretch;
     }
 }

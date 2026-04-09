@@ -472,8 +472,95 @@ function setCurrentYear() {
     });
 }
 
+function initMobileMenu() {
+    const headerContainer = document.querySelector('.header-container');
+    const nav = document.querySelector('.nav-links');
+
+    if (!headerContainer || !nav || headerContainer.querySelector('.menu-toggle')) {
+        return;
+    }
+
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'menu-toggle';
+    toggle.setAttribute('aria-label', 'Open navigation menu');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+
+    toggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('open');
+        document.body.classList.toggle('menu-open', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    nav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('open');
+            document.body.classList.remove('menu-open');
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        });
+    });
+
+    headerContainer.appendChild(toggle);
+}
+
+function registerServiceWorker() {
+    if (!('serviceWorker' in navigator)) {
+        return;
+    }
+
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+    });
+}
+
+function initInstallPrompt() {
+    let deferredPrompt = null;
+
+    const banner = document.createElement('div');
+    banner.className = 'pwa-install';
+    banner.innerHTML = `
+        <div>
+            <strong>Install RedStar Travel</strong>
+            <p>Add the site to your phone for faster access like an app.</p>
+        </div>
+        <button class="button button-primary" type="button">Install App</button>
+    `;
+
+    const button = banner.querySelector('button');
+    button.addEventListener('click', async () => {
+        if (!deferredPrompt) {
+            return;
+        }
+
+        deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+        deferredPrompt = null;
+        banner.classList.remove('show');
+    });
+
+    window.addEventListener('beforeinstallprompt', (event) => {
+        event.preventDefault();
+        deferredPrompt = event;
+        if (!document.body.contains(banner)) {
+            document.body.appendChild(banner);
+        }
+        banner.classList.add('show');
+    });
+
+    window.addEventListener('appinstalled', () => {
+        deferredPrompt = null;
+        banner.classList.remove('show');
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     setCurrentYear();
     toggleReturn(true);
     initLanguage();
+    initMobileMenu();
+    registerServiceWorker();
+    initInstallPrompt();
 });

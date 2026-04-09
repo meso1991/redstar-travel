@@ -1,0 +1,24 @@
+{
+  "name": "RedStar Travel",
+  "short_name": "RedStar",
+  "description": "Flights, hotels, and visa support for regional and international travelers.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4efe7",
+  "theme_color": "#c53b2c",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/assets/images/favicon.ico",
+      "sizes": "48x48 32x32 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/assets/images/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
