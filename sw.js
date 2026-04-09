@@ -1,4 +1,4 @@
-const CACHE_NAME = "redstar-travel-v1";
+const CACHE_NAME = "redstar-travel-v2";
 const CORE_ASSETS = [
     "/",
     "/index.html",
@@ -42,6 +42,25 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
     if (event.request.method !== "GET") {
+        return;
+    }
+
+    const requestUrl = new URL(event.request.url);
+    const isHtmlRequest =
+        event.request.mode === "navigate" ||
+        requestUrl.pathname === "/" ||
+        requestUrl.pathname.endsWith(".html");
+
+    if (isHtmlRequest) {
+        event.respondWith(
+            fetch(event.request)
+                .then((response) => {
+                    const responseClone = response.clone();
+                    caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
+                    return response;
+                })
+                .catch(() => caches.match(event.request).then((cached) => cached || caches.match("/index.html")))
+        );
         return;
     }
 
