@@ -74,17 +74,31 @@
 
                     <div id="flights" class="tab-content active">
                         <div class="trip-options">
-                            <label><input type="radio" name="trip-type" checked onclick="toggleReturn(true)"> <span data-i18n="round_trip">Round Trip</span></label>
-                            <label><input type="radio" name="trip-type" onclick="toggleReturn(false)"> <span data-i18n="one_way">One Way</span></label>
+                            <label><input type="radio" name="trip-type" value="round-trip" checked onclick="toggleReturn(true)"> <span data-i18n="round_trip">Round Trip</span></label>
+                            <label><input type="radio" name="trip-type" value="one-way" onclick="toggleReturn(false)"> <span data-i18n="one_way">One Way</span></label>
+                        </div>
+                        <div class="search-tools">
+                            <div class="search-tools-copy">
+                                <strong data-i18n="sudan_airports_title">Sudan-first airports</strong>
+                                <span data-i18n="sudan_airports_text">Tap a route starter, or type an airport code like PZU, KRT, or DOG.</span>
+                            </div>
+                            <div class="airport-chip-row">
+                                <button class="airport-chip" type="button" onclick="fillAirportField('flight-origin', 'Port Sudan (PZU)')">PZU</button>
+                                <button class="airport-chip" type="button" onclick="fillAirportField('flight-origin', 'Khartoum (KRT)')">KRT</button>
+                                <button class="airport-chip" type="button" onclick="fillAirportField('flight-origin', 'Dongola (DOG)')">DOG</button>
+                                <button class="airport-chip" type="button" onclick="fillAirportField('flight-dest', 'Cairo (CAI)')">CAI</button>
+                                <button class="airport-chip" type="button" onclick="fillAirportField('flight-dest', 'Jeddah (JED)')">JED</button>
+                                <button class="airport-chip" type="button" onclick="fillAirportField('flight-dest', 'Dubai (DXB)')">DXB</button>
+                            </div>
                         </div>
                         <div class="search-grid">
                             <div class="input-box">
                                 <label for="flight-origin" data-i18n="flight_origin_label">Origin</label>
-                                <input type="text" id="flight-origin" data-i18n-placeholder="flight_origin_label" placeholder="Cairo or CAI" required>
+                                <input type="text" id="flight-origin" list="airport-suggestions" data-i18n-placeholder="flight_origin_placeholder" placeholder="Port Sudan (PZU) or KRT" required>
                             </div>
                             <div class="input-box">
                                 <label for="flight-dest" data-i18n="flight_dest_label">Destination</label>
-                                <input type="text" id="flight-dest" data-i18n-placeholder="flight_dest_label" placeholder="Dubai, Istanbul, Cairo" required>
+                                <input type="text" id="flight-dest" list="airport-suggestions" data-i18n-placeholder="flight_dest_placeholder" placeholder="Cairo (CAI) or Jeddah (JED)" required>
                             </div>
                             <div class="input-box">
                                 <label for="flight-departure" data-i18n="flight_departure_label">Departure Date</label>
@@ -93,6 +107,25 @@
                             <div class="input-box" id="return-box">
                                 <label for="flight-return" data-i18n="flight_return_label">Return Date</label>
                                 <input type="date" id="flight-return">
+                            </div>
+                            <div class="input-box">
+                                <label for="flight-cabin" data-i18n="cabin_label">Cabin Class</label>
+                                <select id="flight-cabin">
+                                    <option value="economy" data-i18n="cabin_economy">Economy</option>
+                                    <option value="premium_economy" data-i18n="cabin_premium_economy">Premium Economy</option>
+                                    <option value="business" data-i18n="cabin_business">Business</option>
+                                    <option value="first" data-i18n="cabin_first">First</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <label for="flight-currency" data-i18n="currency_label">Currency</label>
+                                <select id="flight-currency">
+                                    <option value="SDG">SDG</option>
+                                    <option value="USD" selected>USD</option>
+                                    <option value="AED">AED</option>
+                                    <option value="SAR">SAR</option>
+                                    <option value="EGP">EGP</option>
+                                </select>
                             </div>
                             <div class="input-box">
                                 <label data-i18n="travelers_label">Travelers</label>
@@ -104,6 +137,20 @@
                             </div>
                             <button class="button button-primary search-submit" type="button" onclick="searchFlights()" data-i18n="search_flights_btn">Search Flights</button>
                         </div>
+                        <datalist id="airport-suggestions">
+                            <option value="Port Sudan (PZU)"></option>
+                            <option value="Khartoum (KRT)"></option>
+                            <option value="Dongola (DOG)"></option>
+                            <option value="Cairo (CAI)"></option>
+                            <option value="Jeddah (JED)"></option>
+                            <option value="Riyadh (RUH)"></option>
+                            <option value="Dubai (DXB)"></option>
+                            <option value="Doha (DOH)"></option>
+                            <option value="Abu Dhabi (AUH)"></option>
+                            <option value="Sharjah (SHJ)"></option>
+                            <option value="Addis Ababa (ADD)"></option>
+                            <option value="Istanbul (IST)"></option>
+                        </datalist>
                     </div>
 
                     <div id="hotels" class="tab-content">
