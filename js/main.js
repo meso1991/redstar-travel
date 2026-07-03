@@ -1,4 +1,4 @@
-﻿const translations = {
+const translations = {
     common: {
         nav_home: { en: 'Home', ar: 'الرئيسية' },
         nav_about: { en: 'About', ar: 'من نحن' },
@@ -41,6 +41,12 @@
         flight_dest_label: { en: 'Destination', ar: 'الوجهة' },
         flight_departure_label: { en: 'Departure Date', ar: 'تاريخ المغادرة' },
         flight_return_label: { en: 'Return Date', ar: 'تاريخ العودة' },
+        cabin_label: { en: 'Cabin Class', ar: 'درجة الحجز' },
+        cabin_economy: { en: 'Economy', ar: 'اقتصادي' },
+        cabin_premium_economy: { en: 'Premium Economy', ar: 'اقتصادي مميز' },
+        cabin_business: { en: 'Business', ar: 'أعمال' },
+        cabin_first: { en: 'First', ar: 'أول' },
+        currency_label: { en: 'Currency', ar: 'العملة' },
         travelers_label: { en: 'Travelers', ar: 'المسافرون' },
         adults_label: { en: 'Adults', ar: 'بالغون' },
         children_label: { en: 'Children', ar: 'أطفال' },
@@ -98,287 +104,171 @@
         hotel_planning: { en: 'Hotel Planning', ar: 'تخطيط الفنادق' },
         hotel_planning_text: { en: 'Comfort-focused stays with options for family trips, stopovers, and business travel.', ar: 'إقامات مريحة بخيارات للرحلات العائلية والتوقفات والسفر للأعمال.' },
         visa_guidance: { en: 'Visa Guidance', ar: 'إرشاد التأشيرات' },
-        visa_guidance_text: { en: 'Clear document requirements and quick inquiry routing through WhatsApp for faster handling.', ar: 'متطلبات مستندات واضحة وتحويل سريع للاستفسارات عبر واتساب.' },
-        cta_title: { en: 'Need help planning your next trip?', ar: 'هل تحتاج مساعدة في تخطيط رحلتك القادمة؟' },
-        cta_text: { en: 'Our team can help you compare options, prepare your inquiry, and move directly to booking or visa support.', ar: 'يمكن لفريقنا مساعدتك في مقارنة الخيارات وتجهيز الاستفسار والانتقال مباشرة إلى الحجز أو دعم التأشيرة.' },
-        browse_services: { en: 'Browse Services', ar: 'تصفح الخدمات' },
-        talk_redstar: { en: 'Talk To RedStar', ar: 'تحدث مع ريدستار' }
-    },
-    services: {
-        title: { en: 'RedStar Travel Services', ar: 'خدمات ريدستار للسفر' },
-        hero_eyebrow: { en: 'Travel Services', ar: 'خدمات السفر' },
-        hero_title: { en: 'Everything needed to move from inquiry to itinerary.', ar: 'كل ما تحتاجه للانتقال من الاستفسار إلى برنامج الرحلة.' },
-        hero_text: { en: 'Explore flights, hotel planning, and visa assistance in one place with clear next actions for each travel need.', ar: 'استكشف الرحلات وتخطيط الفنادق ومساعدة التأشيرات في مكان واحد مع خطوات واضحة لكل حاجة سفر.' },
-        flights_title: { en: 'Regional and international airline booking support.', ar: 'دعم لحجز الطيران الإقليمي والدولي.' },
-        flights_text: { en: 'Use our curated airline list and quick search flow to reach booking channels faster and compare options with less guesswork.', ar: 'استخدم قائمتنا المختارة من شركات الطيران والبحث السريع للوصول إلى قنوات الحجز والمقارنة بسهولة.' },
-        explore_flights: { en: 'Explore Flights', ar: 'استكشاف الرحلات' },
-        hotels_title: { en: 'Stays that match transit plans, family trips, and premium escapes.', ar: 'إقامات تناسب الترانزيت والرحلات العائلية والإجازات المميزة.' },
-        hotels_text: { en: 'Browse hotel booking platforms or start with destination-based search to narrow the right stay before making the final reservation.', ar: 'تصفح منصات حجز الفنادق أو ابدأ ببحث حسب الوجهة للوصول إلى الإقامة المناسبة قبل الحجز النهائي.' },
-        find_hotels: { en: 'Find Hotels', ar: 'ابحث عن الفنادق' },
-        visa_kicker: { en: 'Visa Support', ar: 'دعم التأشيرات' },
-        visa_title: { en: 'Visa services designed around clear requirements.', ar: 'خدمات تأشيرات مبنية على متطلبات واضحة.' },
-        visa_text: { en: 'Choose a destination to view requirements, service notes, and a direct inquiry route to RedStar.', ar: 'اختر وجهة للاطلاع على المتطلبات وملاحظات الخدمة وطريقة استفسار مباشرة مع ريدستار.' },
-        uae_visa: { en: 'UAE Visa', ar: 'تأشيرة الإمارات' },
-        uae_visa_text: { en: 'Tourist visa support with flexible options depending on stay duration and traveler profile.', ar: 'دعم لتأشيرات السياحة بخيارات مرنة حسب مدة الإقامة ونوع المسافر.' },
-        saudi_visa_text: { en: 'Visit, family, and religious travel guidance with a clear inquiry channel.', ar: 'إرشاد لزيارات السعودية والسفر العائلي والديني مع قناة استفسار واضحة.' },
-        egypt_support_text: { en: 'Fast security approval support with simple requirements and guided follow-up.', ar: 'دعم سريع للموافقة الأمنية بمتطلبات بسيطة ومتابعة موجهة.' },
-        africa_card_title: { en: 'Africa Visas', ar: 'تأشيرات أفريقيا' },
-        africa_card_text: { en: 'Visa options for selected African destinations with clear requirements and pricing snapshots.', ar: 'خيارات تأشيرات لوجهات أفريقية مختارة مع متطلبات واضحة ولمحة عن الأسعار.' },
-        view_details: { en: 'View Details', ar: 'عرض التفاصيل' },
-        cta_title: { en: 'Need a destination not listed here?', ar: 'هل تحتاج وجهة غير موجودة هنا؟' },
-        cta_text: { en: 'Contact RedStar directly and we will guide you to the closest available flight, hotel, or visa route for your trip.', ar: 'تواصل مع ريدستار مباشرة وسنوجّهك إلى أنسب مسار رحلة أو فندق أو تأشيرة لرحلتك.' },
-        africa_visa: { en: 'Africa Visa Options', ar: 'خيارات تأشيرات أفريقيا' }
+        visa_guidance_text: { en: 'Clear requirements and direct inquiry support for multiple destinations.', ar: 'متطلبات واضحة ودعم استفسار مباشر لعدة وجهات.' }
     },
     contact: {
-        title: { en: 'Contact RedStar Travel', ar: 'تواصل مع ريدستار للسفر' },
-        hero_eyebrow: { en: 'Contact RedStar', ar: 'تواصل مع ريدستار' },
-        hero_title: { en: 'Talk to a real travel team, not a maze of forms.', ar: 'تحدث مع فريق سفر حقيقي، لا مع سلسلة طويلة من النماذج.' },
-        hero_text: { en: 'Reach us for visa support, flight bookings, hotel reservations, and practical travel questions through WhatsApp, phone, or email.', ar: 'تواصل معنا بخصوص التأشيرات وحجوزات الطيران والفنادق والأسئلة العملية عبر واتساب أو الهاتف أو البريد الإلكتروني.' },
-        direct_channels: { en: 'Direct Channels', ar: 'قنوات مباشرة' },
-        direct_title: { en: 'Fast replies for urgent travel decisions.', ar: 'ردود سريعة للقرارات العاجلة في السفر.' },
-        direct_text: { en: 'Choose the method that works best for you. WhatsApp is usually the fastest route for service inquiries and document follow-up.', ar: 'اختر الوسيلة الأنسب لك. غالبًا ما يكون واتساب هو الأسرع للاستفسارات والمتابعة.' },
-        whatsapp: { en: 'WhatsApp', ar: 'واتساب' },
-        call_us: { en: 'Call Us', ar: 'اتصل بنا' },
+        title: { en: 'Contact RedStar Travel', ar: 'تواصل مع ريدستار' },
+        hero_eyebrow: { en: 'Get In Touch', ar: 'تواصل معنا' },
+        hero_title: { en: 'We respond fast to every inquiry.', ar: 'نرد على كل استفسار بسرعة.' },
+        hero_text: { en: 'Use the form below or reach us directly on WhatsApp — we are ready to help with flights, hotels, visas, and any travel questions.', ar: 'استخدم النموذج أدناه أو تواصل معنا مباشرة عبر واتساب — نحن مستعدون للمساعدة في الرحلات والفنادق والتأشيرات والاستفسارات.' },
+        contact_form: { en: 'Contact Form', ar: 'نموذج الاتصال' },
+        name: { en: 'Name', ar: 'الاسم' },
         email: { en: 'Email', ar: 'البريد الإلكتروني' },
-        inquiry_kicker: { en: 'Quick Inquiry', ar: 'استفسار سريع' },
-        inquiry_title: { en: 'Send your details to WhatsApp.', ar: 'أرسل بياناتك إلى واتساب.' },
-        inquiry_text: { en: 'We will package your message and open it directly in WhatsApp for faster handling.', ar: 'سنجهّز رسالتك ونفتحها مباشرة في واتساب لتسريع المتابعة.' },
-        full_name: { en: 'Full Name', ar: 'الاسم الكامل' },
-        phone_number: { en: 'Phone Number', ar: 'رقم الهاتف' },
-        service_needed: { en: 'Service Needed', ar: 'الخدمة المطلوبة' },
+        phone: { en: 'Phone (WhatsApp)', ar: 'رقم الهاتف (واتساب)' },
+        service: { en: 'Service', ar: 'الخدمة' },
+        flights_service: { en: 'Flight Booking', ar: 'حجز رحلات' },
+        hotels_service: { en: 'Hotel Booking', ar: 'حجز فنادق' },
+        visas_service: { en: 'Visa Support', ar: 'دعم التأشيرات' },
+        other_service: { en: 'Other', ar: 'أخرى' },
         message: { en: 'Message', ar: 'الرسالة' },
         send_whatsapp: { en: 'Send via WhatsApp', ar: 'إرسال عبر واتساب' },
-        opt_visa: { en: 'Visa Inquiry', ar: 'استفسار تأشيرة' },
-        opt_flight: { en: 'Flight Booking', ar: 'حجز رحلة' },
-        opt_hotel: { en: 'Hotel Reservation', ar: 'حجز فندق' },
-        opt_consult: { en: 'General Travel Consultation', ar: 'استشارة سفر عامة' }
-    },
-    flights: {
-        title: { en: 'Flight Booking Links | RedStar Travel', ar: 'روابط حجز الرحلات | ريدستار للسفر' },
-        hero_eyebrow: { en: 'Flights', ar: 'الرحلات' },
-        hero_title: { en: 'Direct airline and booking channels in one place.', ar: 'قنوات الحجز وشركات الطيران في مكان واحد.' },
-        hero_text: { en: 'Use these links when you already know your preferred carrier, or move back to the home page for a broader travel search.', ar: 'استخدم هذه الروابط إذا كنت تعرف شركة الطيران المناسبة، أو عد للرئيسية لبحث أوسع.' },
-        dir_kicker: { en: 'Airline Directory', ar: 'دليل شركات الطيران' },
-        dir_title: { en: 'Useful booking channels for regional and international routes.', ar: 'قنوات حجز مفيدة للرحلات الإقليمية والدولية.' },
-        dir_text: { en: 'These are external booking websites. Each button opens the official or known booking channel in a new tab.', ar: 'هذه مواقع حجز خارجية. كل زر يفتح الموقع الرسمي أو قناة الحجز المعروفة في تبويب جديد.' },
-        open_ndc: { en: 'Open NDC', ar: 'فتح NDC' },
-        visit_site: { en: 'Visit Site', ar: 'زيارة الموقع' }
-    },
-    hotels: {
-        title: { en: 'Hotel Booking Links | RedStar Travel', ar: 'روابط حجز الفنادق | ريدستار للسفر' },
-        hero_eyebrow: { en: 'Hotels', ar: 'الفنادق' },
-        hero_title: { en: 'Hotel channels for short stays, family trips, and premium reservations.', ar: 'قنوات حجز فنادق للإقامات القصيرة والرحلات العائلية والحجوزات المميزة.' },
-        hero_text: { en: 'Choose a booking platform below or start from the search form on the home page if you want destination-based filtering first.', ar: 'اختر منصة حجز من الأسفل أو ابدأ من نموذج البحث في الصفحة الرئيسية إذا أردت التصفية حسب الوجهة.' },
-        open_agoda: { en: 'Open Agoda', ar: 'فتح Agoda' },
-        open_hotels: { en: 'Open Hotels.com', ar: 'فتح Hotels.com' },
-        open_booking: { en: 'Open Booking.com', ar: 'فتح Booking.com' }
-    },
-    visa: {
-        title: { en: 'Visa Services | RedStar Travel', ar: 'خدمات التأشيرات | ريدستار للسفر' },
-        hero_eyebrow: { en: 'Visa Directory', ar: 'دليل التأشيرات' },
-        hero_title: { en: 'Choose a visa destination and move straight to the right details.', ar: 'اختر وجهة التأشيرة وانتقل مباشرة إلى التفاصيل المناسبة.' },
-        hero_text: { en: 'Browse country pages for requirements, service notes, and direct inquiry actions through RedStar.', ar: 'تصفح صفحات الدول للاطلاع على المتطلبات وملاحظات الخدمة وخيارات الاستفسار المباشر عبر ريدستار.' },
-        visa_dir_saudi_text: { en: 'Visit, family, Umrah, and travel guidance.', ar: 'إرشاد للزيارة العائلية والعمرة والسفر.' },
-        visa_dir_uae_text: { en: 'Tourist visa pathways and traveler profile options.', ar: 'مسارات تأشيرة سياحية وخيارات حسب نوع المسافر.' },
-        visa_dir_egypt_text: { en: 'Fast security approval support and quick document review.', ar: 'دعم سريع للموافقة الأمنية ومراجعة المستندات.' },
-        open_page: { en: 'Open Page', ar: 'فتح الصفحة' }
-    },
-    uae: {
-        title: { en: 'UAE Visa | RedStar Travel', ar: 'تأشيرة الإمارات | ريدستار للسفر' },
-        hero_eyebrow: { en: 'UAE Visa', ar: 'تأشيرة الإمارات' },
-        hero_title: { en: 'Flexible UAE tourist visa support for different traveler profiles.', ar: 'دعم مرن لتأشيرة الإمارات السياحية لفئات المسافرين المختلفة.' },
-        hero_text: { en: 'Suitable for travelers planning short leisure stays, family visits, or travel routed through the Gulf region.', ar: 'مناسب للمسافرين الذين يخططون لإقامات قصيرة أو زيارات عائلية أو سفر عبر الخليج.' },
-        uae_month_title: { en: 'One-Month Visa', ar: 'فيزا شهر' },
-        uae_month_adult: { en: 'Adult: 650 AED', ar: 'بالغ: 650 درهم' },
-        uae_month_child: { en: 'Child: 300 AED', ar: 'الأطفال: 300 درهم' },
-        uae_two_month_title: { en: 'Two-Month Visa', ar: 'فيزا شهرين' },
-        uae_two_month_adult: { en: 'Adult: 800 AED', ar: 'بالغ: 800 درهم' },
-        uae_two_month_child: { en: 'Child: 330 AED', ar: 'الأطفال: 330 درهم' },
-        uae_two_month_adult_guarantee: { en: 'Adult with guarantee: 1030 AED (970 AED refundable). This applies to single-entry visas.', ar: 'بالغ بضمان: 1030 درهم (مستردة 970 درهم). هذا الشرط خاص بفيزا دخول واحد.' },
-        uae_multi_title: { en: 'Two-Month Multiple Entry Visa', ar: 'فيزا شهرين متعددة' },
-        uae_multi_adult: { en: 'Adult with guarantee: 2230 AED (1970 AED refundable)', ar: 'بالغ بضمان: 2230 درهم (مستردة 1970 درهم)' },
-        uae_resident_title: { en: 'GCC / Europe Residents or Visit Support', ar: 'مقيم دول الخليج أو أوروبا أو مستند الزيارة' },
-        uae_resident_item_1: { en: 'One month adult: 800 AED', ar: 'شهر بالغ: 800 درهم' },
-        uae_resident_item_2: { en: 'Two months adult: 1100 AED', ar: 'شهرين بالغ: 1100 درهم' },
-        uae_resident_item_3: { en: 'One month family: 800 AED per adult, 350 AED per child', ar: 'شهر عائلة: 800 درهم للبالغ، 350 درهم للطفل' },
-        uae_resident_item_4: { en: 'Two months family: 1000 AED per adult, 500 AED per child', ar: 'شهرين عائلة: 1000 درهم للبالغ، 500 درهم للطفل' },
-        uae_terms_title: { en: 'Terms & Conditions', ar: 'الشروط والأحكام' },
-        uae_terms_text: { en: 'If the traveler overstays or breaks the visa rules, the agent must pay an absconding report fee of 3500 AED plus any related fines.', ar: 'في حالة تخلف الشخص وكسر الفيزا، يلتزم الوكيل بدفع مبلغ بلاغ الهروب بقيمة 3500 درهم وأي مخالفات تترتب على ذلك.' },
-        uae_requirements_title: { en: 'Required Documents', ar: 'المطلوب' },
-        uae_doc_1: { en: 'Passport copy valid for 6 months', ar: 'صورة الجواز ساري لمدة 6 شهور' },
-        uae_doc_2: { en: 'Personal photo', ar: 'صورة شخصية' },
-        ready_uae: { en: 'Ready to ask about the UAE visa?', ar: 'جاهز للاستفسار عن تأشيرة الإمارات؟' },
-        ready_uae_text: { en: 'Send a direct inquiry to RedStar and we will guide you through the right visa option for your travel profile.', ar: 'أرسل استفسارك مباشرة إلى ريدستار وسنرشدك إلى خيار التأشيرة المناسب لحالتك.' }
-    },
-    saudi: {
-        title: { en: 'Saudi Visa | RedStar Travel', ar: 'تأشيرة السعودية | ريدستار للسفر' },
-        hero_eyebrow: { en: 'Saudi Arabia', ar: 'السعودية' },
-        hero_title: { en: 'Support for visit travel, family travel, and religious journeys.', ar: 'دعم لرحلات الزيارة والسفر العائلي والرحلات الدينية.' },
-        hero_text: { en: 'RedStar helps direct your inquiry toward the right Saudi travel category so you can prepare the correct documents early.', ar: 'تساعدك ريدستار في توجيه الاستفسار إلى فئة السفر المناسبة إلى السعودية لتجهيز المستندات مبكرًا.' },
-        saudi_family_title: { en: 'Family Visit', ar: 'زيارة عائلية' },
-        saudi_family_egypt: { en: 'From Egypt: 10,500 EGP', ar: 'من مصر: 10500 جنيه مصري' },
-        saudi_family_sudan: { en: 'From Sudan: 950,000 SDG', ar: 'من السودان: 950 ألف سوداني' },
-        saudi_umrah_title: { en: 'Umrah', ar: 'العمرة' },
-        saudi_umrah_text: { en: 'Applications will open after Hajj.', ar: 'التقديم سيفتح بعد الحج.' },
-        saudi_tourist_title: { en: 'Tourist Visit for GCC Residents', ar: 'زيارة سياحية لمقيمي دول الخليج' },
-        saudi_tourist_req_1: { en: 'Passport copy valid for 6 months', ar: 'صورة الجواز ساري لمدة 6 شهور' },
-        saudi_tourist_req_2: { en: 'ID or residence permit copy valid', ar: 'صورة الهوية أو الإقامة سارية' },
-        saudi_tourist_req_3: { en: 'Personal photo with white background', ar: 'صورة شخصية بخلفية بيضاء' },
-        saudi_tourist_price: { en: 'Price: 600 AED', ar: 'السعر: 600 درهم' },
-        need_help: { en: 'Need help with a Saudi visa inquiry?', ar: 'هل تحتاج مساعدة في استفسار تأشيرة السعودية؟' },
-        need_help_text: { en: 'Open WhatsApp with a pre-filled message and let RedStar guide the next requirements.', ar: 'افتح واتساب برسالة جاهزة ودع ريدستار يوجّهك إلى المتطلبات التالية.' }
-    },
-    egypt: {
-        title: { en: 'Egypt Support | RedStar Travel', ar: 'دعم مصر | ريدستار للسفر' },
-        hero_eyebrow: { en: 'Egypt Travel Support', ar: 'دعم السفر إلى مصر' },
-        hero_title: { en: 'Fast Egypt security approval support when timing matters.', ar: 'دعم سريع للموافقة الأمنية لمصر عندما يكون الوقت مهمًا.' },
-        hero_text: { en: 'Use RedStar for guided follow-up on Egypt-related travel support, especially when travelers need a quick path and clear next documents.', ar: 'استخدم ريدستار للمتابعة الموجهة في دعم السفر إلى مصر، خاصة عندما تحتاج إلى مسار سريع ومستندات واضحة.' },
-        egypt_requirements_title: { en: 'Requirements', ar: 'المطلوب' },
-        egypt_req_1: { en: 'Passport valid for 6 months', ar: 'جواز ساري 6 شهور' },
-        egypt_req_2: { en: 'Arrival destination', ar: 'وجهة القدوم' },
-        egypt_price_title: { en: 'Price', ar: 'السعر' },
-        egypt_price_text: { en: 'Starting from $470', ar: 'يبدأ من 470 دولارًا' },
-        start_egypt: { en: 'Start your Egypt inquiry now.', ar: 'ابدأ استفسارك عن مصر الآن.' },
-        start_egypt_text: { en: 'We will prepare your message for WhatsApp so you can send the request to RedStar immediately.', ar: 'سنجهّز رسالتك لواتساب لتتمكن من إرسال الطلب مباشرة إلى ريدستار.' },
-        send_inquiry: { en: 'Send Inquiry', ar: 'إرسال استفسار' }
-    },
-    africa: {
-        title: { en: 'Africa Visa Options | RedStar Travel', ar: 'خيارات تأشيرات أفريقيا | ريدستار للسفر' },
-        hero_eyebrow: { en: 'Africa Visa Support', ar: 'دعم تأشيرات أفريقيا' },
-        hero_title: { en: 'Selected African destinations with quick requirement guidance.', ar: 'وجهات أفريقية مختارة مع إرشادات سريعة للمتطلبات.' },
-        hero_text: { en: 'Use this page as a starting point for pricing snapshots and basic requirement notes before sending your inquiry to RedStar.', ar: 'استخدم هذه الصفحة كنقطة بداية لأسعار تقريبية وملاحظات المتطلبات قبل إرسال الاستفسار إلى ريدستار.' },
-        africa_col_1: { en: 'East Africa', ar: 'شرق أفريقيا' },
-        africa_col_2: { en: 'Central & Regional Options', ar: 'خيارات وسط أفريقيا والإقليم' },
-        africa_item_1: { en: 'Zanzibar: from $90 with passport copy and personal photo.', ar: 'زنجبار: من 90 دولارًا مع صورة الجواز وصورة شخصية.' },
-        africa_item_2: { en: 'Ethiopia: from $75 with passport copy and personal photo.', ar: 'إثيوبيا: من 75 دولارًا مع صورة الجواز وصورة شخصية.' },
-        africa_item_3: { en: 'Rwanda: from $70 with passport copy and personal photo.', ar: 'رواندا: من 70 دولارًا مع صورة الجواز وصورة شخصية.' },
-        africa_item_4: { en: 'Uganda: from $65 with passport copy, photo, and yellow fever card.', ar: 'أوغندا: من 65 دولارًا مع صورة الجواز والصورة الشخصية وكرت الحمى الصفراء.' },
-        africa_item_5: { en: 'South Sudan: from $80 with passport copy, photo, and yellow fever card.', ar: 'جنوب السودان: من 80 دولارًا مع صورة الجواز والصورة الشخصية وكرت الحمى الصفراء.' },
-        africa_item_6: { en: 'Tanzania: from $70 with passport copy and personal photo.', ar: 'تنزانيا: من 70 دولارًا مع صورة الجواز وصورة شخصية.' },
-        africa_item_7: { en: 'Cameroon: from $90 with passport copy and personal photo.', ar: 'الكاميرون: من 90 دولارًا مع صورة الجواز وصورة شخصية.' },
-        africa_item_8: { en: 'Kenya: from $60 with passport copy and personal photo.', ar: 'كينيا: من 60 دولارًا مع صورة الجواز وصورة شخصية.' },
-        tanzania_country: { en: 'Tanzania', ar: 'تنزانيا' },
-        ethiopia_country: { en: 'Ethiopia', ar: 'إثيوبيا' },
-        rwanda_country: { en: 'Rwanda', ar: 'رواندا' },
-        uganda_country: { en: 'Uganda', ar: 'أوغندا' },
-        south_sudan_country: { en: 'South Sudan', ar: 'جنوب السودان' },
-        cameroon_country: { en: 'Cameroon', ar: 'الكاميرون' },
-        kenya_country: { en: 'Kenya', ar: 'كينيا' },
-        zanzibar_country: { en: 'Zanzibar', ar: 'زنجبار' },
-        req_passport_photo: { en: 'Passport copy + personal photo', ar: 'صورة الجواز + صورة شخصية' },
-        req_passport_photo_yellow: { en: 'Passport copy + personal photo + yellow fever card', ar: 'صورة الجواز + صورة شخصية + كرت الحمى الصفراء' },
-        price_70: { en: '$70', ar: '70 دولارًا' },
-        price_75: { en: '$75', ar: '75 دولارًا' },
-        price_80: { en: '$80', ar: '80 دولارًا' },
-        price_90: { en: '$90', ar: '90 دولارًا' },
-        price_65: { en: '$65', ar: '65 دولارًا' },
-        price_60: { en: '$60', ar: '60 دولارًا' },
-        africa_ask: { en: 'Ask RedStar about an Africa visa.', ar: 'استفسر من ريدستار عن تأشيرات أفريقيا.' },
-        africa_ask_text: { en: 'We can confirm the latest documents, help with pricing guidance, and direct you toward the right destination-specific steps.', ar: 'يمكننا تأكيد أحدث المستندات والمساعدة في التسعير وتوجيهك إلى الخطوات المناسبة لكل وجهة.' }
+        office_info: { en: 'Office Information', ar: 'معلومات المكتب' },
+        whatsapp_number: { en: '+20 (WhatsApp)', ar: '+20 (واتساب)' },
+        hours: { en: 'Business Hours', ar: 'ساعات العمل' },
+        sat_thurs: { en: 'Saturday - Thursday: 9 AM - 6 PM', ar: 'السبت - الخميس: 9 صباحًا - 6 مساءً' },
+        friday: { en: 'Friday: 10 AM - 2 PM', ar: 'الجمعة: 10 صباحًا - 2 ظهرًا' },
+        closed: { en: 'Closed on Sunday', ar: 'مغلق يوم الأحد' }
     }
 };
 
-function translateNode(node, value) {
-    if (!node) return;
-    if (node.tagName === 'INPUT' || node.tagName === 'TEXTAREA') {
-        node.placeholder = value;
-        return;
-    }
-    node.textContent = value;
+const i18nConfig = {
+    defaultLang: 'en'
+};
+
+function getCurrentLang() {
+    const stored = localStorage.getItem('redstar_lang');
+    if (stored) return stored;
+    
+    const htmlLang = document.documentElement.lang;
+    if (htmlLang && ['en', 'ar'].includes(htmlLang)) return htmlLang;
+    
+    return 'en';
 }
 
-function applyLanguage(lang) {
-    const page = document.body.dataset.page;
-    const pageTranslations = translations[page] || {};
-    const merged = { ...translations.common, ...pageTranslations };
-
-    document.documentElement.lang = lang === 'ar' ? 'ar' : 'en';
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-
-    document.querySelectorAll('[data-i18n]').forEach((node) => {
-        const key = node.dataset.i18n;
-        const value = merged[key]?.[lang];
-        if (value) {
-            translateNode(node, value);
-        }
-    });
-
-    document.querySelectorAll('[data-i18n-placeholder]').forEach((node) => {
-        const key = node.dataset.i18nPlaceholder;
-        const value = merged[key]?.[lang];
-        if (value) {
-            node.placeholder = value;
-        }
-    });
-
-    if (merged.title?.[lang]) {
-        document.title = merged.title[lang];
-    }
-
-    document.querySelectorAll('.lang-btn').forEach((btn) => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-
+function setLanguage(lang) {
+    if (!['en', 'ar'].includes(lang)) return;
+    
     localStorage.setItem('redstar_lang', lang);
-    document.dispatchEvent(new CustomEvent('redstar:language-changed', { detail: { lang } }));
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    
+    applyTranslations();
+    document.dispatchEvent(new CustomEvent('redstar:language-changed'));
 }
 
-function initLanguage() {
-    const initialLang = localStorage.getItem('redstar_lang') || 'en';
-    applyLanguage(initialLang);
+function getTranslation(key, section = 'common') {
+    const lang = getCurrentLang();
+    const path = key.split('.');
+    
+    let obj = translations[section];
+    if (!obj) obj = translations.common;
+    
+    for (const part of path) {
+        obj = obj?.[part];
+        if (!obj) break;
+    }
+    
+    if (typeof obj === 'object' && obj[lang]) {
+        return obj[lang];
+    }
+    
+    return key;
+}
 
-    document.querySelectorAll('.lang-btn').forEach((btn) => {
-        btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+function applyTranslations() {
+    const page = document.body.dataset.page || 'index';
+    const lang = getCurrentLang();
+    
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        const text = getTranslation(key, page);
+        
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.placeholder = text;
+        } else if (el.tagName === 'OPTION') {
+            el.textContent = text;
+        } else {
+            el.textContent = text;
+        }
     });
+    
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.dataset.i18nPlaceholder;
+        const text = getTranslation(key, page);
+        el.placeholder = text;
+    });
+    
+    const yearEl = document.querySelector('[data-current-year]');
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
 }
 
-function openTab(event, tabName) {
-    document.querySelectorAll('.tab-content').forEach((tab) => {
+document.addEventListener('DOMContentLoaded', function() {
+    applyTranslations();
+    
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const lang = this.dataset.lang;
+            setLanguage(lang);
+            
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+    
+    const currentLang = getCurrentLang();
+    document.querySelector(`[data-lang="${currentLang}"]`)?.classList.add('active');
+});
+
+function openTab(evt, tabName) {
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabContents.forEach(tab => {
         tab.classList.remove('active');
     });
-
-    document.querySelectorAll('.tab-btn').forEach((button) => {
-        button.classList.remove('active');
+    
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    tabButtons.forEach(btn => {
+        btn.classList.remove('active');
     });
-
-    const target = document.getElementById(tabName);
-    if (target) {
-        target.classList.add('active');
+    
+    const tabElement = document.getElementById(tabName);
+    if (tabElement) {
+        tabElement.classList.add('active');
     }
-
-    if (event && event.currentTarget) {
-        event.currentTarget.classList.add('active');
+    
+    if (evt && evt.currentTarget) {
+        evt.currentTarget.classList.add('active');
     }
 }
 
 function toggleReturn(show) {
     const returnBox = document.getElementById('return-box');
-    const returnInput = document.getElementById('flight-return');
-
-    if (!returnBox || !returnInput) {
-        return;
-    }
-
-    returnBox.hidden = !show;
-    returnInput.required = show;
-
-    if (!show) {
-        returnInput.value = '';
+    if (returnBox) {
+        returnBox.hidden = !show;
+        if (!show) {
+            const returnInput = document.getElementById('flight-return');
+            if (returnInput) returnInput.value = '';
+        }
     }
 }
 
-function buildUrl(baseUrl, params) {
-    const url = new URL(baseUrl, window.location.href);
+function fillAirportField(fieldId, value) {
+    const field = document.getElementById(fieldId);
+    if (field) {
+        field.value = value;
+        field.focus();
+    }
+}
+
+function buildUrl(page, params) {
+    const url = new URL(page, window.location.origin);
     Object.entries(params).forEach(([key, value]) => {
-        if (value !== '' && value !== null && value !== undefined) {
+        if (value) {
             url.searchParams.set(key, value);
         }
     });
     return url.toString();
-}
-
-function openExternal(url) {
-    window.open(url, '_blank', 'noopener,noreferrer');
 }
 
 function searchFlights() {
@@ -389,6 +279,8 @@ function searchFlights() {
     const adults = document.getElementById('adults')?.value || '1';
     const children = document.getElementById('kids')?.value || '0';
     const infants = document.getElementById('infants')?.value || '0';
+    const cabin = document.getElementById('flight-cabin')?.value || 'economy';
+    const currency = document.getElementById('flight-currency')?.value || 'USD';
     const isRoundTrip = !document.getElementById('return-box')?.hidden;
 
     if (!origin || !destination || !departure) {
@@ -408,7 +300,9 @@ function searchFlights() {
         returnDate: isRoundTrip ? returnDate : '',
         adults,
         children,
-        infants
+        infants,
+        cabin,
+        currency
     });
 
     window.location.href = searchUrl;
@@ -444,123 +338,32 @@ function sendToWhatsApp(event) {
     const phone = document.getElementById('phone')?.value.trim();
     const service = document.getElementById('service')?.value;
     const message = document.getElementById('message')?.value.trim();
-    const agencyNumber = '249912327987';
 
-    if (!name || !phone || !service) {
-        alert(document.documentElement.lang === 'ar' ? 'يرجى إكمال الاسم ورقم الهاتف ونوع الخدمة.' : 'Please complete your name, phone number, and service type.');
+    if (!name || !phone || !service || !message) {
+        alert(document.documentElement.lang === 'ar' ? 'يرجى ملء جميع الحقول.' : 'Please fill in all fields.');
         return;
     }
 
-    const text = document.documentElement.lang === 'ar'
-        ? `مرحبا ريدستار للسفر، اسمي ${name}. رقم هاتفي ${phone}. أحتاج مساعدة في ${service}. التفاصيل: ${message || 'لا توجد تفاصيل إضافية.'}`
-        : `Hello RedStar Travel, my name is ${name}. My phone number is ${phone}. I need help with ${service}. Details: ${message || 'No extra details provided.'}`;
+    const whatsappMessage = `Hello RedStar Travel!\n\nName: ${name}\nPhone: ${phone}\nService: ${service}\nMessage: ${message}`;
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappNumber = '201068882266';
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
-    openExternal(`https://wa.me/${agencyNumber}?text=${encodeURIComponent(text)}`);
+    window.open(whatsappUrl, '_blank');
 }
 
-function sendVisaInquiry(destination) {
-    const agencyNumber = '249912327987';
-    const text = document.documentElement.lang === 'ar'
-        ? `مرحبا ريدستار للسفر، أريد الاستفسار عن خدمة ${destination}. أرجو مشاركة الباقات والمتطلبات.`
-        : `Hello RedStar Travel, I want to inquire about the ${destination} visa service. Please share the available packages and required documents.`;
-    openExternal(`https://wa.me/${agencyNumber}?text=${encodeURIComponent(text)}`);
+function sendFlightToWhatsApp(tripDetails) {
+    const whatsappNumber = '201068882266';
+    const message = `Hello RedStar Travel!\n\nI'm interested in the following flight:\n\n${tripDetails}`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
 }
 
-function setCurrentYear() {
-    document.querySelectorAll('[data-current-year]').forEach((node) => {
-        node.textContent = new Date().getFullYear();
-    });
+function sendHotelToWhatsApp(hotelDetails) {
+    const whatsappNumber = '201068882266';
+    const message = `Hello RedStar Travel!\n\nI'm interested in the following hotel booking:\n\n${hotelDetails}`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
 }
-
-function initMobileMenu() {
-    const headerContainer = document.querySelector('.header-container');
-    const nav = document.querySelector('.nav-links');
-
-    if (!headerContainer || !nav || headerContainer.querySelector('.menu-toggle')) {
-        return;
-    }
-
-    const toggle = document.createElement('button');
-    toggle.type = 'button';
-    toggle.className = 'menu-toggle';
-    toggle.setAttribute('aria-label', 'Open navigation menu');
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-
-    toggle.addEventListener('click', () => {
-        const isOpen = nav.classList.toggle('open');
-        document.body.classList.toggle('menu-open', isOpen);
-        toggle.setAttribute('aria-expanded', String(isOpen));
-        toggle.innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
-    });
-
-    nav.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => {
-            nav.classList.remove('open');
-            document.body.classList.remove('menu-open');
-            toggle.setAttribute('aria-expanded', 'false');
-            toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
-        });
-    });
-
-    headerContainer.appendChild(toggle);
-}
-
-function registerServiceWorker() {
-    if (!('serviceWorker' in navigator)) {
-        return;
-    }
-
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js').catch(() => {});
-    });
-}
-
-function initInstallPrompt() {
-    let deferredPrompt = null;
-
-    const banner = document.createElement('div');
-    banner.className = 'pwa-install';
-    banner.innerHTML = `
-        <div>
-            <strong>Install RedStar Travel</strong>
-            <p>Add the site to your phone for faster access like an app.</p>
-        </div>
-        <button class="button button-primary" type="button">Install App</button>
-    `;
-
-    const button = banner.querySelector('button');
-    button.addEventListener('click', async () => {
-        if (!deferredPrompt) {
-            return;
-        }
-
-        deferredPrompt.prompt();
-        await deferredPrompt.userChoice;
-        deferredPrompt = null;
-        banner.classList.remove('show');
-    });
-
-    window.addEventListener('beforeinstallprompt', (event) => {
-        event.preventDefault();
-        deferredPrompt = event;
-        if (!document.body.contains(banner)) {
-            document.body.appendChild(banner);
-        }
-        banner.classList.add('show');
-    });
-
-    window.addEventListener('appinstalled', () => {
-        deferredPrompt = null;
-        banner.classList.remove('show');
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    setCurrentYear();
-    toggleReturn(true);
-    initLanguage();
-    initMobileMenu();
-    registerServiceWorker();
-    initInstallPrompt();
-});
