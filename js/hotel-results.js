@@ -1,8 +1,8 @@
-﻿const hotelResultsTranslations = {
+const hotelResultsTranslations = {
     en: {
         eyebrow: 'Hotel Search',
         title: 'Compare hotel options from your booking partners.',
-        subtitle: 'Use the links below to open the same search on Booking.com and Agoda.',
+        subtitle: 'Use the links below to open the same search on Booking.com and Agoda, or book directly with RedStar.',
         summary: 'Hotel Search Summary',
         guests: 'Guests',
         rooms: 'Rooms',
@@ -12,12 +12,13 @@
         agodaText: 'Useful for city stays and regional hotel deals across many destinations.',
         openBooking: 'Open Booking.com',
         openAgoda: 'Open Agoda',
+        bookWithRedStar: 'Book with RedStar (WhatsApp)',
         noQuery: 'Missing hotel search details. Please go back and search again.'
     },
     ar: {
         eyebrow: 'بحث فنادق',
         title: 'قارن خيارات الفنادق من شركاء الحجز.',
-        subtitle: 'استخدم الروابط أدناه لفتح نفس البحث على Booking.com وAgoda.',
+        subtitle: 'استخدم الروابط أدناه لفتح نفس البحث على Booking.com وAgoda، أو احجز مباشرة مع ريدستار.',
         summary: 'ملخص بحث الفنادق',
         guests: 'الضيوف',
         rooms: 'الغرف',
@@ -27,6 +28,7 @@
         agodaText: 'مفيد لإقامات المدن والعروض الفندقية في وجهات كثيرة.',
         openBooking: 'فتح Booking.com',
         openAgoda: 'فتح Agoda',
+        bookWithRedStar: 'احجز مع ريدستار (واتساب)',
         noQuery: 'بيانات بحث الفنادق ناقصة. عد وابدأ البحث من جديد.'
     }
 };
@@ -67,6 +69,23 @@ function buildHotelSearchLinks(query) {
     };
 }
 
+function buildHotelWhatsAppMessage(query) {
+    const checkInDate = new Date(query.checkin);
+    const checkOutDate = new Date(query.checkout);
+    const nights = Math.ceil((checkOutDate - checkInDate) / (1000 * 60 * 60 * 24));
+    
+    let message = `🏨 *Hotel Booking Request*\n\n`;
+    message += `📍 Destination: ${query.destination}\n`;
+    message += `📅 Check-in: ${query.checkin}\n`;
+    message += `📅 Check-out: ${query.checkout}\n`;
+    message += `🌙 Nights: ${nights}\n`;
+    message += `🛏️ Rooms: ${query.rooms}\n`;
+    message += `👥 Guests: ${query.guests}\n\n`;
+    message += `Please help me find the best hotel option for my stay.`;
+    
+    return message;
+}
+
 function initHotelResultsPage() {
     if (document.body.dataset.page !== 'hotel_results') {
         return;
@@ -90,6 +109,7 @@ function initHotelResultsPage() {
     }
 
     const links = buildHotelSearchLinks(query);
+    const whatsappMessage = buildHotelWhatsAppMessage(query);
 
     summary.innerHTML = `
         <span class="kicker">${t.summary}</span>
@@ -105,15 +125,17 @@ function initHotelResultsPage() {
         <article class="detail-card">
             <h3>${t.bookingTitle}</h3>
             <p>${t.bookingText}</p>
-            <div class="hero-actions">
+            <div class="hero-actions" style="display: flex; gap: 10px; flex-wrap: wrap;">
                 <a class="button button-primary" href="${links.booking}" target="_blank" rel="noopener noreferrer">${t.openBooking}</a>
+                <button class="button button-secondary" type="button" onclick="sendHotelToWhatsApp('${whatsappMessage.replace(/'/g, "\\'")}'); return false;">${t.bookWithRedStar}</button>
             </div>
         </article>
         <article class="detail-card">
             <h3>${t.agodaTitle}</h3>
             <p>${t.agodaText}</p>
-            <div class="hero-actions">
+            <div class="hero-actions" style="display: flex; gap: 10px; flex-wrap: wrap;">
                 <a class="button button-primary" href="${links.agoda}" target="_blank" rel="noopener noreferrer">${t.openAgoda}</a>
+                <button class="button button-secondary" type="button" onclick="sendHotelToWhatsApp('${whatsappMessage.replace(/'/g, "\\'")}'); return false;">${t.bookWithRedStar}</button>
             </div>
         </article>
     `;
