@@ -7,6 +7,7 @@ loadEnvFile(path.join(__dirname, ".env"));
 
 const PORT = process.env.PORT || 3000;
 const ROOT = __dirname;
+const API_MODULES = loadApiModules();
 
 const MIME_TYPES = {
     ".html": "text/html; charset=utf-8",
@@ -113,6 +114,36 @@ function loadEnvFile(filePath) {
             process.env[key] = value;
         }
     });
+}
+
+function loadApiModules() {
+    const apiDir = path.join(__dirname, "api");
+    const modules = {};
+
+    if (!fs.existsSync(apiDir)) {
+        return modules;
+    }
+
+    fs.readdirSync(apiDir)
+        .filter((fileName) => fileName.endsWith(".js"))
+        .forEach((fileName) => {
+            const moduleName = path.basename(fileName, ".js");
+            modules[moduleName] = require(path.join(apiDir, fileName));
+        });
+
+    return modules;
+}
+
+function getApiModuleStatus() {
+    return Object.fromEntries(
+        Object.entries(API_MODULES).map(([name, moduleApi]) => [
+            name,
+            {
+                loaded: true,
+                methods: Object.keys(moduleApi)
+            }
+        ])
+    );
 }
 
 function sendJson(res, statusCode, payload) {
@@ -533,7 +564,16 @@ const server = http.createServer(async (req, res) => {
         sendJson(res, 200, {
             ok: true,
             wegoConfigured: isWegoConfigured(),
-            mode: isWegoConfigured() ? "live" : "demo"
+            mode: isWegoConfigured() ? "live" : "demo",
+            modules: Object.keys(API_MODULES)
+        });
+        return;
+    }
+
+    if (reqUrl.pathname === "/api/providers" && req.method === "GET") {
+        sendJson(res, 200, {
+            ok: true,
+            providers: getApiModuleStatus()
         });
         return;
     }
