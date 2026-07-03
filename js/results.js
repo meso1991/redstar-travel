@@ -1,4 +1,4 @@
-﻿const resultsTranslations = {
+const resultsTranslations = {
     en: {
         eyebrow: 'Live Flight Search',
         title: 'We are checking prices and providers for your trip.',
@@ -21,6 +21,7 @@
         official: 'Official airline',
         agency: 'Agency / OTA',
         openProvider: 'Open Provider',
+        bookWithRedStar: 'Book with RedStar (WhatsApp)',
         unavailable: 'Booking link not available yet',
         oneWay: 'One way',
         roundTrip: 'Round trip',
@@ -55,6 +56,7 @@
         official: 'شركة طيران رسمية',
         agency: 'وكالة / OTA',
         openProvider: 'فتح مزود الحجز',
+        bookWithRedStar: 'احجز مع ريدستار (واتساب)',
         unavailable: 'رابط الحجز غير متوفر بعد',
         oneWay: 'ذهاب فقط',
         roundTrip: 'ذهاب وعودة',
@@ -194,7 +196,9 @@ function getSearchParams() {
         returnDate: params.get('returnDate') || '',
         adults: params.get('adults') || '1',
         children: params.get('children') || '0',
-        infants: params.get('infants') || '0'
+        infants: params.get('infants') || '0',
+        cabin: params.get('cabin') || 'economy',
+        currency: params.get('currency') || 'USD'
     };
 }
 
@@ -226,6 +230,31 @@ function formatSearchSummary(query, t) {
     `;
 }
 
+function buildFlightWhatsAppMessage(trip, query, t) {
+    const tripType = query.returnDate ? t.roundTrip : t.oneWay;
+    const cabinLabel = query.cabin || 'economy';
+    const currency = query.currency || 'USD';
+    
+    let message = `✈️ *Flight Booking Request*\n\n`;
+    message += `📍 Route: ${trip.route.originCity} (${trip.route.originCode}) → ${trip.route.destinationCity} (${trip.route.destinationCode})\n`;
+    message += `📅 Type: ${tripType}\n`;
+    message += `🗓️ Departure: ${query.departureDate}\n`;
+    if (query.returnDate) {
+        message += `🗓️ Return: ${query.returnDate}\n`;
+    }
+    message += `👥 Passengers: ${query.adults} adult${query.adults > 1 ? 's' : ''}${query.children > 0 ? `, ${query.children} child${query.children > 1 ? 'ren' : ''}` : ''}${query.infants > 0 ? `, ${query.infants} infant${query.infants > 1 ? 's' : ''}` : ''}\n`;
+    message += `💺 Cabin: ${cabinLabel}\n`;
+    message += `🏢 Airline: ${trip.providerName}\n`;
+    message += `⏱️ Duration: ${trip.outbound.duration}\n`;
+    message += `✈️ Stops: ${t.stopLabel(trip.outbound.stops)}\n`;
+    message += `💵 Price: ${trip.price} ${currency}\n`;
+    message += `♻️ Refundable: ${trip.refundable ? t.yes : t.no}\n`;
+    message += `🔄 Exchangeable: ${trip.exchangeable ? t.yes : t.no}\n\n`;
+    message += `Please help me complete this booking.`;
+    
+    return message;
+}
+
 function renderResults(payload, query) {
     const lang = getResultsLang();
     const t = resultsTranslations[lang];
@@ -250,9 +279,14 @@ function renderResults(payload, query) {
         card.className = 'detail-card';
 
         const providerType = trip.providerType === 'airline' ? t.official : t.agency;
-        const buttonHtml = trip.handoffUrl
-            ? `<a class="button button-primary" href="${trip.handoffUrl}" target="_blank" rel="noopener noreferrer">${t.openProvider}</a>`
-            : `<span style="color: var(--muted); font-weight: 700;">${t.unavailable}</span>`;
+        const whatsappMessage = buildFlightWhatsAppMessage(trip, query, t);
+
+        const buttonsHtml = `
+            <div class="hero-actions" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                ${trip.handoffUrl ? `<a class="button button-primary" href="${trip.handoffUrl}" target="_blank" rel="noopener noreferrer">${t.openProvider}</a>` : ''}
+                <button class="button button-secondary" type="button" onclick="sendFlightToWhatsApp('${whatsappMessage.replace(/'/g, "\\'")}'); return false;">${t.bookWithRedStar}</button>
+            </div>
+        `;
 
         card.innerHTML = `
             <span class="kicker">${t.lowestPrice}</span>
@@ -272,7 +306,7 @@ function renderResults(payload, query) {
                 <span>${t.refundable}: ${trip.refundable ? t.yes : t.no}</span>
                 <span>${t.exchangeable}: ${trip.exchangeable ? t.yes : t.no}</span>
             </div>
-            <div class="hero-actions">${buttonHtml}</div>
+            ${buttonsHtml}
         `;
 
         grid.appendChild(card);
